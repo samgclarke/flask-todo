@@ -26,8 +26,7 @@ class Todo(db.Model):
 
 @app.route("/")
 def index():
-    # items = Todo.query.all()
-    items = []
+    items = Todo.query.all()
     return render_template('index.html', items=items)
 
 
