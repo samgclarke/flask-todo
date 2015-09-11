@@ -7,6 +7,8 @@ from flask.ext.sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+
+'''
 db = SQLAlchemy(app)
 
 
@@ -21,21 +23,24 @@ class Todo(db.Model):
 
     def __repr__(self):
         return '<Todo %r>' % self.name
+'''
 
 
 @app.route("/")
 def index():
-    items = Todo.query.all()
+    # items = Todo.query.all()
+    items = []
     return render_template('index.html', items=items)
 
 
 @app.route("/new", methods=['POST'])
 def new():
-    name = request.form['name']
-    description = request.form['description']
-    todo = Todo(name=name, description=description)
-    db.session.add(todo)
-    db.session.commit()
+    # todo = Todo(
+    #     name=request.form['name'],
+    #     description=request.form['description']
+    # )
+    # db.session.add(todo)
+    # db.session.commit()
     return redirect(url_for('index'))
 
 if __name__ == "__main__":
