@@ -10,16 +10,16 @@ FROM python:2.7
 MAINTAINER Sam Clarke
 
 # Copy the application folder inside the container
-COPY . /hello_world
+COPY . /todo
 
 # Get pip to download and install requirements:
-RUN pip install -r /hello_world/requirements.txt
+RUN pip install -r /todo/requirements.txt
 
 # Expose ports
 EXPOSE 80
 
 # Set the default directory where CMD will execute
-WORKDIR /hello_world
+WORKDIR /todo
 
 # start server
 # CMD ["gunicorn", "--config=gunicorn.py", "app:app"]

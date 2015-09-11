@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, redirect, \
     request, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -5,8 +6,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = \
-    'postgres://sam:darwin3000@localhost/todo'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 
 
