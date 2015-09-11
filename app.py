@@ -8,7 +8,6 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 
-'''
 db = SQLAlchemy(app)
 
 
@@ -23,7 +22,6 @@ class Todo(db.Model):
 
     def __repr__(self):
         return '<Todo %r>' % self.name
-'''
 
 
 @app.route("/")
