@@ -32,12 +32,12 @@ def index():
 
 @app.route("/new", methods=['POST'])
 def new():
-    # todo = Todo(
-    #     name=request.form['name'],
-    #     description=request.form['description']
-    # )
-    # db.session.add(todo)
-    # db.session.commit()
+    todo = Todo(
+        name=request.form['name'],
+        description=request.form['description']
+    )
+    db.session.add(todo)
+    db.session.commit()
     return redirect(url_for('index'))
 
 if __name__ == "__main__":
